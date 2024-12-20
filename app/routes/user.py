@@ -6,16 +6,13 @@ router = APIRouter()
 
 @router.post("/", response_model=User, status_code=201)
 def create_user(user: User):
-    # Auto-assign the id
     if len(users) == 0:
-        new_id = 1  # Start from 1 if there are no users
+        new_id = 1  
     else:
-        new_id = max(users.keys()) + 1  # Increment the highest existing id
+        new_id = max(users.keys()) + 1  
 
-    user.id = new_id  # Assign the new id to the user
+    user.id = new_id  
 
-    # Check if user already exists (optional, based on email or other unique field)
-# Check if the email already exists by iterating over user values
     if any(existing_user["email"] == user.email for existing_user in users.values()):
         raise HTTPException(status_code=400, detail="User with this email already exists")
     users[user.id] = user.model_dump()

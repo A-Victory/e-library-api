@@ -36,6 +36,5 @@ def test_delete_user(test_client):
 
 def test_get_all_users(test_client):
     response = test_client.get("/users/")
-    print(response.json())
     assert response.status_code == 200
     assert len(response.json()) > 0

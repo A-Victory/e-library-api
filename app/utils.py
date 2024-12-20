@@ -6,7 +6,6 @@ class BorrowBookHelper:
 
     @staticmethod
     def get_user_by_id(user_id: int):
-        print("Accessing mocked users:", users)  # Print users to verify mock
         user = users.get(user_id)
         if not user:
             raise HTTPException(status_code=404, detail=f"User with id {user_id} not found")
@@ -17,7 +16,6 @@ class BorrowBookHelper:
     def get_book_by_id(book_id: int):
         book = books.get(book_id)
         if not book:
-            print("Could not find book with id: {}".format(book_id))
             raise HTTPException(status_code=404, detail=f"book with id {book_id} not found")
         return book
     
@@ -25,7 +23,6 @@ class BorrowBookHelper:
     def is_active_user(user_id: int):
         user = BorrowBookHelper.get_user_by_id(user_id)
         if not user["is_active"]:
-            print("User is not active")
             raise HTTPException(status_code=400, detail="User's account is not active")
         return True
     
@@ -33,7 +30,6 @@ class BorrowBookHelper:
     def is_book_available(book_id: int):
         book = BorrowBookHelper.get_book_by_id(book_id)
         if not book["is_available"]:
-            print("Book is not available for borrowing")
             raise HTTPException(status_code=400, detail="Book is not available for borrowing")
         return True
     
@@ -80,7 +76,6 @@ class BorrowBookHelper:
         book = BorrowBookHelper.get_book_by_id(book_id)
         print(f"{book}")
         if not book["is_available"]:
-            print("Book is not available for borrowing")
             raise HTTPException(status_code=400, detail="Book is not available for borrowing")
         return True
     
