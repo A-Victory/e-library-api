@@ -115,12 +115,3 @@ To run the tests for the E-Library API System, follow these steps:
 
 The tests are located in the `tests` directory and cover various aspects of the application, including user management, book management, and borrow management.
 
-## License
-
-This project is licensed under the MIT License.
-
-## Acknowledgements
-
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Pydantic](https://pydantic-docs.helpmanual.io/)
-- [Uvicorn](https://www.uvicorn.org/)
